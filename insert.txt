@@ -1,0 +1,14 @@
+// FIND all of the documents in the collection
+coll.find()
+
+// FIND all records that have a gender of `f`
+coll.find({gender: 'f'})
+
+// FIND all records that have a gender of `f` AND a nationality of `english`
+coll.find({gender: 'f', nationality: 'english'})
+
+// FIND all records that have a gender of `f` AND a nationality of `american` OR `irish`
+coll.find({gender: 'f', $or: [{nationality: 'american'}, {nationality: 'irish'}]})
+
+// FIND all records that have a gender of `f` AND a nationality of `american` OR `irish` and SORT them in an ascending according to the nationality
+coll.find({gender: 'f', $or: [{nationality: 'american'}, {nationality: 'irish'}]}).sort({nationality: 1});

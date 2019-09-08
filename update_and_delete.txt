@@ -1,0 +1,8 @@
+// UPDATE the first matching record
+coll.update({nationality: 'irish'}, {$set: {hair_colour: 'blue'}})
+
+// UPDATE all matching records
+coll.update({nationality: 'irish'}, {$set: {hair_colour: 'purple'}},{multi:true})
+
+// DELETE a record that has a `first` of `kate` and a `last` of `bush`
+coll.remove({first: 'kate', last: 'bush'})
