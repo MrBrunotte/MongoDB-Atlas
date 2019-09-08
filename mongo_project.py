@@ -73,6 +73,65 @@ def add_record():
     except:
         print("error accessing the database")
 
+# define find_record() method
+
+
+def find_record():
+    doc = get_record()
+    if doc:
+        print("")
+        for k, v in doc.items():
+            if k != "_id":
+                print(k.capitalize() + ": " + v.capitalize())
+
+# define edit_record() method
+
+
+def edit_record():
+    doc = get_record()
+    if doc:
+        update_doc = {}
+        print("")
+        for k, v in doc.items():
+            if k != "_id":
+                update_doc[k] = input(k.capitalize() + " [" + v + "] > ")
+
+                if update_doc[k] == "":
+                    update_doc[k] = v
+
+        try:
+            coll.update_one(doc, {'$set': update_doc})
+            print("")
+            print("Document updated")
+        except:
+            print("Error accessing the database")
+
+# define our delete_record() function
+
+
+def delete_record():
+
+    doc = get_record()
+
+    if doc:
+        print("")
+        for k, v in doc.items():
+            if k != "_id":
+                print(k.capitalize() + ": " + v.capitalize())
+
+        print("")
+        confirmation = input(
+            "Is this the document you want to delete?\nY or N > ")
+        print("")
+
+        if confirmation.lower() == 'y':
+            try:
+                coll.remove(doc)
+                print("Document deleted!")
+            except:
+                print("Document not deleted")
+
+
 # define our main_loop() function
 
 
@@ -83,11 +142,11 @@ def main_loop():
             # call add_record() function
             add_record()
         elif option == "2":
-            print("You have seleced option 2")
+            find_record()
         elif option == "3":
-            print("You have seleced option 3")
+            edit_record()
         elif option == "4":
-            print("You have seleced option 4")
+            delete_record()
         elif option == "5":
             conn.close()
             break
