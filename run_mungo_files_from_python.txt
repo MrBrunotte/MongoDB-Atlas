@@ -1,0 +1,14 @@
+### Run Mongo Commands From A Python File ###
+
+What is it?
+Using Python to run your Mongo commands.
+
+What does it do?
+Allows you to programmatically create, query and update your database entries.
+
+How do you use it?
+By writing and running python code in a .py file.
+
+### ###
+
+

@@ -1,2 +1,3 @@
 .vscode
 venv374
+mongo_uri.py
