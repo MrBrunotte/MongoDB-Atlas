@@ -1,8 +1,15 @@
 // UPDATE the first matching record
-coll.update({nationality: 'irish'}, {$set: {hair_colour: 'blue'}})
+coll.update({nationality: 'irish'}, {$set: {hair_colour: 'blue'}});
+// Check:
+coll.find({nationality: 'irish'});
 
-// UPDATE all matching records
-coll.update({nationality: 'irish'}, {$set: {hair_colour: 'purple'}},{multi:true})
+// UPDATE ALL matching records
+coll.update({nationality: 'irish'}, {$set: {hair_colour: 'purple'}},{multi:true});
+// Check:
+coll.find({nationality: 'irish'});
 
 // DELETE a record that has a `first` of `kate` and a `last` of `bush`
-coll.remove({first: 'kate', last: 'bush'})
+coll.remove({first: 'kate', last: 'bush'});
+
+// DELETE ALL records
+coll.remove();
